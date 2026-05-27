@@ -7,6 +7,7 @@ import { netJrfPastQuestions } from './jrfDatabase';
 
 export default function PsychologyApp() {
   const [currentModule, setCurrentModule] = useState('clinical');
+  const [showGuide, setShowGuide] = useState(true);
   
   // Module 1: Sequential Case Arena Shuffled States
   const [shuffledCaseDeck, setShuffledCaseDeck] = useState([]);
@@ -125,6 +126,30 @@ export default function PsychologyApp() {
 
   return (
     <div className="w-full min-h-screen bg-slate-200 text-slate-800 flex items-center justify-center p-4 box-border">
+      
+      {/* GUIDE MODAL */}
+      {showGuide && (
+        <div className="fixed inset-0 z-[100] bg-[#2B3E34]/95 flex items-center justify-center p-6 animate-in fade-in duration-300">
+          <div className="bg-white max-w-sm w-full rounded-3xl p-8 shadow-2xl flex flex-col gap-6 text-center">
+            <div className="w-16 h-16 bg-[#E8EFEA] rounded-2xl flex items-center justify-center text-3xl mx-auto">🧠</div>
+            <div>
+              <h2 className="text-xl font-black text-[#2B3E34] mb-2">BehavioralLab v1.0</h2>
+              <p className="text-[13px] text-slate-600 leading-relaxed">
+                Welcome to the diagnostic matrix. This tool is designed to bridge clinical psychology with algorithmic precision.
+                <br /><br />
+                <strong>Usage:</strong> Select a module, analyze case vignettes or exam logic, and input your findings to verify against established psychological datasets.
+              </p>
+            </div>
+            <button
+              onClick={() => setShowGuide(false)}
+              className="w-full py-4 bg-[#3A5A40] text-white font-black text-xs uppercase tracking-widest rounded-xl hover:bg-[#2B3E34] transition-all"
+            >
+              I Understood
+            </button>
+          </div>
+        </div>
+      )}
+
       <div 
         className="w-full max-w-md bg-[#F4F6F5] rounded-[40px] p-6 border border-white flex flex-col justify-between overflow-hidden box-border gap-4"
         style={{ 

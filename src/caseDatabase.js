@@ -292,32 +292,27 @@ const mockDisorders = [
   { name: "Schizoaffective Disorder", symptom: "concurrent mood episodes and psychosis", cueWord: "schizoaffective" },
   { name: "Delusional Disorder", symptom: "fixed unshakeable beliefs", cueWord: "delusion" }
 ];
-
-// Completely safe loop using direct modulo calculation against mockDisorders length
-const startingLength = sequentialCases.length; // Safeguards original elements (4 handwritten ones)
+const startingLength = sequentialCases.length;
 const totalDesiredCases = 25;
 
 for (let i = startingLength; i < totalDesiredCases; i++) {
-  // Safe indexing fallback using a clean modulo operation
   const mockTarget = mockDisorders[(i - startingLength) % mockDisorders.length];
   
-  if (!mockTarget) continue; // Ultimate safety net to prevent reading undefined parameters
-
   sequentialCases.push({
     id: `CASE-CL-${String(i + 1).padStart(2, '0')}`,
     correctDisorder: mockTarget.name,
-    rationale: `Programmatic case validation for ${mockTarget.name}. Diagnostic parameters trace explicit clinical indications of ${mockTarget.symptom} alongside systematic validation, clear differential exclusion steps, long-term pattern tracking, and full alignment with strict DSM-5 manual rules.`,
+    rationale: `Diagnostic assessment for ${mockTarget.name}. Confirmed via DSM-5 symptom clustering, exclusion of organic/toxicological factors, and longitudinal analysis of functional impairment.`,
     stages: [
-      { vignette: `[Log 01/10] Patient clinical admissions intake data reveals distinct, emergent trends regarding ${mockTarget.symptom} indicators observed across several weeks.`, cue: `Identify early timeline markers of ${mockTarget.cueWord} conditions.` },
-      { vignette: `[Log 02/10] Family interviews highlight significant historical emergence of behavioral modifications related directly to ${mockTarget.symptom}.`, cue: `Assess environmental and interpersonal changes over time.` },
-      { vignette: `[Log 03/10] Objective psychometric evaluations reveal highly elevated patterns matching the clinical profile of ${mockTarget.name}.`, cue: `Analyze quantitative diagnostic scales and baseline data.` },
-      { vignette: `[Log 04/10] Physical assessments indicate secondary sleep disruption, muscle tension, or visceral somatic reactions linked to ${mockTarget.cueWord}.`, cue: `Track physiological and neurovegetative clinical signs.` },
-      { vignette: `[Log 05/10] Standard neurological imaging and comprehensive endocrine lab panels show normal baseline organic values.`, cue: `Systematically rule out primary organic or neurochemical pathology.` },
-      { vignette: `[Log 06/10] Occupational performance evaluation displays marked functional impairment, role degradation, and severe avoidance patterns.`, cue: `Measure functional impairment metrics across social and work environments.` },
-      { vignette: `[Log 07/10] Structured clinical observation confirms the regular activation of cognitive distortions under direct situational triggers.`, cue: `Observe active processing errors and protective safety behaviors.` },
-      { vignette: `[Log 08/10] Longitudinal tracking confirms these maladaptive habits do not display episodic correlation with distinct psychotic or medical spikes.`, cue: `Establish pure differential boundary lines between competing conditions.` },
-      { vignette: `[Log 09/10] Detailed toxicological testing confirms clean metabolic results, ruling out substance dependence or withdrawal loops.`, cue: `Confirm diagnostic intoxication boundaries.` },
-      { vignette: `[Log 10/10] Final symptom analysis verifies that all conditions match the duration and severity frameworks outlined by the DSM-5.`, cue: `Finalize the structural diagnostic evaluation for ${mockTarget.name}.` }
+      { vignette: `[Log 01/10] Initial intake indicates high distress regarding ${mockTarget.symptom}.`, cue: `Identify the primary presenting concern.` },
+      { vignette: `[Log 02/10] Occupational and social performance is significantly impaired.`, cue: `Measure functional impairment metrics.` },
+      { vignette: `[Log 03/10] Symptoms have persisted consistently across several months.`, cue: `Establish chronicity and duration.` },
+      { vignette: `[Log 04/10] Screening tools indicate alignment with ${mockTarget.cueWord} markers.`, cue: `Analyze quantitative diagnostic scales.` },
+      { vignette: `[Log 05/10] Observation shows recurring cognitive distortions under stress.`, cue: `Observe active processing errors.` },
+      { vignette: `[Log 06/10] Physical exams note secondary reactions linked to ${mockTarget.cueWord}.`, cue: `Track neurovegetative clinical signs.` },
+      { vignette: `[Log 07/10] Family reports highlight historical behavioral modifications.`, cue: `Assess environmental and interpersonal changes.` },
+      { vignette: `[Log 08/10] Toxicology screens return clean results.`, cue: `Confirm substance use is not the primary driver.` },
+      { vignette: `[Log 09/10] Longitudinal tracking shows no correlation with acute psychotic or organic spikes.`, cue: `Establish differential boundary lines.` },
+      { vignette: `[Log 10/10] Symptom analysis verifies all diagnostic criteria per DSM-5 for ${mockTarget.name}.`, cue: `Finalize diagnosis.` }
     ]
   });
 }

@@ -1,0 +1,137 @@
+export const storylineTherapy = [
+  {
+    id: "case_01",
+    title: "The Perfectionist's Burden",
+    chapters: [
+      {
+        stepId: "rapport_01",
+        sessionStage: "Rapport Building",
+        clientDialogue: "I feel like I'm running on a treadmill that never stops. I'm not good enough.",
+        aiHighlight: "AI MENTOR: Using Carl Rogers' Person-Centered approach, we prioritize 'Unconditional Positive Regard'. Do not rush to fix; first, validate the emotional weight of their struggle to build the therapeutic alliance.",
+        options: [
+          { id: "r1", type: "Validation", text: "It sounds exhausting to constantly try to meet such an impossible standard.", isOptimal: true, nextStepId: "theory_psychoed" },
+          { id: "r2", type: "Advice", text: "You should quit your job immediately.", isOptimal: false, nextStepId: "rapport_01" }
+        ]
+      },
+      {
+        stepId: "theory_psychoed",
+        sessionStage: "Psychoeducation",
+        clientDialogue: "(AI Mentor): You've built a bridge. Now, in CBT, we identify 'Automatic Thoughts'. How should we introduce this concept?",
+        aiHighlight: "AI MENTOR: Psychoeducation is about collaboration. We must define the link between thoughts and feelings before challenging them.",
+        options: [
+          { id: "t1", type: "Theory", text: "Let's explore how your self-talk might be fueling this feeling of burnout.", isOptimal: true, nextStepId: "intervention_cbt" },
+          { id: "t2", type: "Theory", text: "Your brain is broken, we need to fix it.", isOptimal: false, nextStepId: "theory_psychoed" }
+        ]
+      },
+      {
+        stepId: "intervention_cbt",
+        sessionStage: "Technique Application",
+        clientDialogue: "I made one mistake on a report, and I just know I'm getting fired.",
+        aiHighlight: "AI MENTOR: This is 'Catastrophizing'. The goal of the Thought Record is to move from emotional reasoning to evidence-based reality testing.",
+        options: [
+          { id: "i1", type: "CBT Record", text: "Let's list the evidence for and against that thought: what is the actual likelihood of being fired?", isOptimal: true, nextStepId: "closing_stage" },
+          { id: "i2", type: "Distraction", text: "Don't think about the report; focus on your hobby.", isOptimal: false, nextStepId: "intervention_cbt" }
+        ]
+      },
+      {
+        stepId: "closing_stage",
+        sessionStage: "Collaborative Closure",
+        clientDialogue: "Actually, looking at it, I've never had a bad review before.",
+        aiHighlight: "AI MENTOR: Effective counseling closes with a summary of the client's agency—the client found the solution, you provided the framework.",
+        options: [
+          { id: "c1", type: "Summary", text: "You recognized your own bias today. Let's practice catching this thought this week.", isOptimal: true, nextStepId: "finish" }
+        ]
+      }
+    ]
+  },
+  {
+    id: "case_03",
+    title: "The Social Scrutiny: Amal",
+    chapters: [
+      {
+        stepId: "rapport_01",
+        sessionStage: "Rapport Building",
+        clientDialogue: "I avoid meetings because everyone will see my hands shaking.",
+        aiHighlight: "AI MENTOR: In Social Anxiety, 'Safety Behaviors' maintain the anxiety. Avoidance is the primary barrier to change.",
+        options: [
+          { id: "r1", type: "Normalization", text: "The fear of being 'found out' can feel paralyzing. It makes sense why you'd want to avoid that stress.", isOptimal: true, nextStepId: "theory_anxiety" },
+          { id: "r2", type: "Reassurance", text: "Nobody is looking at your hands, stop worrying.", isOptimal: false, nextStepId: "rapport_01" }
+        ]
+      },
+      {
+        stepId: "theory_anxiety",
+        sessionStage: "Conceptualization",
+        clientDialogue: "(AI Mentor): Why does avoidance reinforce the anxiety?",
+        aiHighlight: "AI MENTOR: Avoidance prevents the client from experiencing the feared outcome (and realizing it isn't catastrophic).",
+        options: [
+          { id: "t1", type: "Theory", text: "Because you never get the chance to learn that you can handle the situation.", isOptimal: true, nextStepId: "intervention_exp" },
+          { id: "t2", type: "Theory", text: "Because avoidance is a sign of laziness.", isOptimal: false, nextStepId: "theory_anxiety" }
+        ]
+      },
+      {
+        stepId: "intervention_exp",
+        sessionStage: "Behavioral Experiment",
+        clientDialogue: "I'm still terrified to go to the meeting.",
+        aiHighlight: "AI MENTOR: We use 'Graded Exposure'. We break the fear down into micro-steps.",
+        options: [
+          { id: "i1", type: "Exposure", text: "What if we try attending just the first 5 minutes? You don't have to speak, just observe.", isOptimal: true, nextStepId: "closing_stage" },
+          { id: "i2", type: "Distraction", text: "Take a tranquilizer before the meeting.", isOptimal: false, nextStepId: "intervention_exp" }
+        ]
+      },
+      {
+        stepId: "closing_stage",
+        sessionStage: "Commitment",
+        clientDialogue: "5 minutes... I can probably do that.",
+        aiHighlight: "AI MENTOR: Ensure the commitment is specific, measurable, and achievable (SMART goal).",
+        options: [
+          { id: "c1", type: "Summary", text: "Let's commit to 5 minutes. Notice what happens to your anxiety levels during that time.", isOptimal: true, nextStepId: "finish" }
+        ]
+      }
+    ]
+  },
+  {
+    id: "case_04",
+    title: "The Guilt Trap: Meenu",
+    chapters: [
+      {
+        stepId: "rapport_01",
+        sessionStage: "Rapport Building",
+        clientDialogue: "I feel like a terrible mother if I take even an hour to myself.",
+        aiHighlight: "AI MENTOR: Use 'Cognitive Restructuring' to address the 'Should Statements' and 'Conditional Self-Worth'.",
+        options: [
+          { id: "r1", type: "Empathetic Inquiry", text: "Where did you learn that being a good mother means sacrificing yourself completely?", isOptimal: true, nextStepId: "theory_boundary" },
+          { id: "r2", type: "Advice", text: "Just tell your kids to stop bothering you.", isOptimal: false, nextStepId: "rapport_01" }
+        ]
+      },
+      {
+        stepId: "theory_boundary",
+        sessionStage: "Theory",
+        clientDialogue: "(AI Mentor): What is the core conflict between her 'Role' and her 'Self'?",
+        aiHighlight: "AI MENTOR: Often, clients view boundaries as synonymous with abandonment. We must reframe boundaries as an act of sustainability.",
+        options: [
+          { id: "t1", type: "Theory", text: "She believes her worth is external; she needs to develop self-care as a right, not a reward.", isOptimal: true, nextStepId: "intervention_action" },
+          { id: "t2", type: "Theory", text: "She just needs a vacation.", isOptimal: false, nextStepId: "theory_boundary" }
+        ]
+      },
+      {
+        stepId: "intervention_action",
+        sessionStage: "Strategy",
+        clientDialogue: "I just don't know how to start without feeling guilty.",
+        aiHighlight: "AI MENTOR: We use 'Values-Based Action'. Connect the behavior to her values as a mother.",
+        options: [
+          { id: "i1", type: "Action", text: "If you are rested, what kind of mother are you able to be compared to when you are burnt out?", isOptimal: true, nextStepId: "closing_stage" },
+          { id: "i2", type: "Task", text: "Lock yourself in the bathroom for 2 hours.", isOptimal: false, nextStepId: "intervention_action" }
+        ]
+      },
+      {
+        stepId: "closing_stage",
+        sessionStage: "Closing",
+        clientDialogue: "I'd be more patient... I guess that's not selfish.",
+        aiHighlight: "AI MENTOR: Affirm the client’s insight regarding the paradox of self-care.",
+        options: [
+          { id: "c1", type: "Reflection", text: "You just discovered that self-care is a tool for better parenting, not an abandonment of it.", isOptimal: true, nextStepId: "finish" }
+        ]
+      }
+    ]
+  }
+];
